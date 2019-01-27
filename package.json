@@ -1,0 +1,39 @@
+{
+  "name": "perlin-noise-worldmap",
+  "version": "0.1.0",
+  "description": "Using Perlin Noise to generate a worldmap and move dots.",
+  "private": false,
+  "main": "build/index.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minagawah/perlin-noise-worldmap.git"
+  },
+  "keywords": [
+    "perlin noise",
+    "vue"
+  ],
+  "author": "minagawah <minagawa@tokyo800.jp>",
+  "license": "mixed",
+  "bugs": {
+    "url": "https://github.com/minagawah/perlin-noise-worldmap/issues"
+  },
+  "dependencies": {
+    "vue": "^2.5.21"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.3.0",
+    "@vue/cli-plugin-eslint": "^3.3.0",
+    "@vue/cli-service": "^3.3.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-template-compiler": "^2.5.21"
+  }
+}
