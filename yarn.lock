@@ -4549,6 +4549,10 @@ node-releases@^1.1.3:
   dependencies:
     semver "^5.3.0"
 
+noisejs@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/noisejs/-/noisejs-2.1.0.tgz#84b4c4cd04ff43367034f65253e213e0d9fe1aff"
+
 nopt@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
@@ -6668,6 +6672,10 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+victor@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/victor/-/victor-1.1.0.tgz#de3cc77b15589b1b0c7b22c3dad297034ab002ba"
 
 vm-browserify@0.0.4:
   version "0.0.4"
