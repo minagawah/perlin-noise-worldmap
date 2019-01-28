@@ -1,7 +1,6 @@
 /* eslint camelcase: [0] */
 /* eslint no-unused-vars: [1] */
 import { Noise } from 'noisejs';
-console.log(Noise);
 
 const print = s => console.log(`[Terrain] ${s}`);
 
@@ -12,10 +11,10 @@ let noise; // Perlin noise instance.
  * @private
  */
 const fractalNoise = (width, height) => {
-  const data = new Array(height);
   const octaves = 8;
   const frq = 100.0;
   const amp = 1.0;
+  const data = new Array(width);
   for (let x = 0; x < width; x++) {
     data[x] = new Array(height);
     for (let y = 0; y < height; y++) {
@@ -98,17 +97,23 @@ export default function factory (canvas) {
           color = 'hsla(73, 11%, 53%, 1)';
         }
         else if (t > 0.35) {
-          color = 'hsla(120, 8%, 35%, 1)';
+          color = 'hsla(173, 8%, 40%, 1)';
         }
         else if (t > 0.3) {
           color = 'hsla(173, 8%, 32%, 1)';
         }
         // ocean
+        else if (t > 0.2) {
+          color = 'hsla(210, 68%, 29%, 1)';
+        }
         else if (t > 0) {
           color = 'hsla(237, 68%, 34%, 1)';
         }
+        else if (t > -0.1) {
+          color = 'hsla(237, 63%, 29%, 1)';
+        }
         else {
-          color = 'hsla(237, 68%, 26%, 1)'
+          color = 'hsla(237, 68%, 26%, 1)';
         }
         ctx.fillStyle = color;
         ctx.fillRect(x * size, y * size, size, size); 

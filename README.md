@@ -10,8 +10,8 @@ Based on [Johan Karlsson's blog post](https://codepen.io/DonKarlssonSan/post/par
  
 ## License
 
-Vector library:
-MIT License
+Vector library:  
+MIT License  
 Copyright (c) 2011 Max Kueng, George Crabtree
 
 Perlin nose generation:

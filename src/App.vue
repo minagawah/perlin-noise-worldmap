@@ -21,8 +21,10 @@
 </template>
 
 <style lang="stylus">
+/* Override Vuetify's max-width for container */
 .bg
   background-color: black
+  max-width: 2048px
 
 #canvas, #canvasTerrain
   position: absolute
@@ -43,11 +45,9 @@ import util from '@/lib/util';
 import createTerrain from './Terrain';
 import createFlows from './Flows';
 
-const { clamp } = util;
+const { clamp, debounce } = util;
 
 const print = s => console.log(`[App] ${s}`);
-
-const NUM_OF_PARTICLES = 250;
 
 let canvas;
 let canvasTerr;
@@ -69,7 +69,7 @@ const requestAnimFrame = function () {
 }();
 
 const getCanvasSize = () => {
-  const maxWidth = 745;
+  const maxWidth = 920;
   const body = document.body;
   const cont = document.getElementById('container');
   const { width: fullWidth, height: fullHeight } = (body && body.getBoundingClientRect()) || {};
@@ -77,18 +77,18 @@ const getCanvasSize = () => {
   const availHeight = (fullHeight - heightUsed) * 0.9;
   const width = (fullWidth > maxWidth) ? maxWidth : fullWidth;
   const height = availHeight;
-  print(`---> ${width} x ${height}`);
   return { width, height };
 };
 
 const reset = () => {
-  print('+++++++ reset()');
   const { width, height } = getCanvasSize();
+  print('+++++++ reset()');
   print(`${width}x${height}`);
   canvas.width = width;
   canvas.height = height;
 
-  flo.reset({ num: NUM_OF_PARTICLES, width, height });
+  const num = width * height / 900;
+  flo.reset({ num, width, height });
   terrainImage = ter.reset({ width, height });
 
   const cc = document.getElementById('canvasContainer');
@@ -131,16 +131,14 @@ const init = () => {
   canvasTerr = document.getElementById('canvasTerrain');
   flo = createFlows(canvas);
   ter = createTerrain(canvasTerr);
-
-  window.addEventListener('resize', reset, false);
+  window.addEventListener('resize', debounce(reset, 400), false);
   window.addEventListener('click', reset, false);
-
   reset();
   step();
 };
 
 export default {
-  name: 'Flow',
+  name: 'App',
   mounted () {
     init();
   }

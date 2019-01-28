@@ -47,6 +47,36 @@ const withinRect = (p, rect) => (
 // See if the given point falls within the arc's radius.
 const withinArc = (p, a) => distance(p, a) <= a.radius;
 
+/**
+ * Restricts the sequential calls to allow only one call per given period of time.
+ * @function
+ * @param {Function} f - Function for which you want the debounce effect.
+ * @param {number} wait - Period of time to limit the function call.
+ * @param {Object} [context=] - Optional. Specify when a certain context is needed upon the function call.
+ * @returns {Function}
+ * @example
+ * window.addEventListener(
+ *   'resize',
+ *   debounce(resize.bind(this), 150),
+ *   false
+ * );
+ */
+const debounce = (f, wait, context = this) => {
+  let timeout = null;
+  let args = null;
+  const g = () => Reflect.apply(f, context, args);
+  return (...o) => {
+    args = o;
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+    else {
+      g(); // For the first time...
+    }
+    timeout = setTimeout(g, wait);
+  };
+};
+
 export default {
   rand,
   randInt,
@@ -59,5 +89,6 @@ export default {
   angle,
   inRange,
   withinRect,
-  withinArc
+  withinArc,
+  debounce
 }

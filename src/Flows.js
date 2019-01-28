@@ -1,5 +1,5 @@
 /* eslint camelcase: [0] */
-/* eslint no-unused-vars: [0] */
+/* eslint no-unused-vars: [1] */
 /**
  * Based on Johan Karlsson's blog post:
  * https://codepen.io/DonKarlssonSan/post/particles-in-simplex-noise-flow-field
@@ -7,11 +7,6 @@
 import Victor from 'victor';
 import { Noise } from 'noisejs';
 import util from '@/lib/util';
-
-const int = Math.trunc;
-const print = s => console.log(`[Flow] ${s}`);
-
-const { rand, withinRect } = util;
 
 Victor.prototype.setAngle = function (angle) {
   const length = this.length();
@@ -25,6 +20,13 @@ Victor.prototype.setLength = function (length) {
   this.y = Math.sin(angle) * length;
 };
 
+const { rand, withinRect } = util;
+
+const PARTICLE_SIZE = 3;
+
+const int = Math.trunc;
+const print = s => console.log(`[Flow] ${s}`);
+
 let noise; // Perlin noise instance.
 
 /**
@@ -37,7 +39,7 @@ let noise; // Perlin noise instance.
  * @returns {Object}
  */
 const createParticle = ({ ctx, index, width, height }) => {
-  const size = 3;
+  const size = PARTICLE_SIZE;
   const pos = new Victor(rand(0, width), rand(0, height));
   const vel = new Victor(rand(-1, 1), rand(-1, 1));
   
@@ -75,7 +77,6 @@ const createParticle = ({ ctx, index, width, height }) => {
  */
 export default function factory (canvas) {
   const ctx = canvas && canvas.getContext('2d');
-
   const size = 15;
 
   let width = 0;
@@ -83,7 +84,6 @@ export default function factory (canvas) {
   let cols = 1;
   let rows = 1;
   let zin = 0;
-
   let particles = [];
   let field = [];
 
@@ -124,7 +124,7 @@ export default function factory (canvas) {
     width = canvas.width = w;
     height = canvas.height = h;
     ctx.strokeStyle = 'hsla(0, 0%, 100%, 1)';
-    ctx.fillStyle = 'hsla(0, 0%, 100%, 1)';
+    ctx.fillStyle = 'hsla(0, 0%, 100%, 0.9)';
     cols = Math.round(width / size) + 1;
     rows = Math.round(height / size) + 1;
     resetParticles(num);
