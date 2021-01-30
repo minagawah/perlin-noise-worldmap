@@ -1,6 +1,6 @@
 {
   "name": "perlin-noise-worldmap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "Using Perlin Noise to generate a worldmap and move dots.",
   "author": "Hiroki Minagawa <minagawa@tokyo800.jp>",
@@ -28,6 +28,7 @@
     "vue-template-compiler": "^2.5.21",
     "vuetify-loader": "^1.0.5"
   },
+  "license": "(Unlicense OR MIT)",
   "bugs": {
     "url": "https://github.com/minagawah/perlin-noise-worldmap/issues"
   },

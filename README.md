@@ -10,6 +10,14 @@ Based on [Johan Karlsson's blog post](https://codepen.io/DonKarlssonSan/post/par
  
 ## License
 
+Dual-licensed under either of the followings.  
+Choose at your option.
+
+- The UNLICENSE ([LICENSE.UNLICENSE](LICENSE.UNLICENSE))
+- MIT license ([LICENSE.MIT](LICENSE.MIT))
+
+Also, see the following license information:
+
 Vector library:  
 MIT License  
 Copyright (c) 2011 Max Kueng, George Crabtree
@@ -17,6 +25,3 @@ Copyright (c) 2011 Max Kueng, George Crabtree
 Perlin nose generation:
 ISC License  
 Copyright (c) 2013, Joseph Gentle
-
-See [LICENSE](./LICENSE) for details.
-
