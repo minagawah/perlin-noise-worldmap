@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "private": false,
   "description": "Using Perlin Noise to generate a worldmap and move dots.",
-  "author": "Hiroki Minagawa <minagawa@tokyo800.jp>",
+  "author": "minagawah <minag@tokyo800.jp>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
